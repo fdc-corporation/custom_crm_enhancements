@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_contact_job_user,crm.contact.job user,model_crm_contact_job,base.group_user,1,0,0,0
+access_crm_contact_job_manager,crm.contact.job manager,model_crm_contact_job,sales_team.group_sale_manager,1,1,1,1

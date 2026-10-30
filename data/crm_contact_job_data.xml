@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="job_analista_compras" model="crm.contact.job"><field name="name">Analista de Compras</field><field name="sequence">10</field></record>
+    <record id="job_jefe_mantenimiento" model="crm.contact.job"><field name="name">Jefe de Mantenimiento</field><field name="sequence">20</field></record>
+    <record id="job_asistente_compras" model="crm.contact.job"><field name="name">Asistente de Compras</field><field name="sequence">30</field></record>
+    <record id="job_comprador" model="crm.contact.job"><field name="name">Comprador</field><field name="sequence">40</field></record>
+    <record id="job_jefe_compras" model="crm.contact.job"><field name="name">Jefe de Compras</field><field name="sequence">50</field></record>
+    <record id="job_gerente_general" model="crm.contact.job"><field name="name">Gerente General</field><field name="sequence">60</field></record>
+    <record id="job_planner_mantenimiento" model="crm.contact.job"><field name="name">Planner de Mantenimiento</field><field name="sequence">70</field></record>
+    <record id="job_supervisor_mantenimiento" model="crm.contact.job"><field name="name">Supervisor de Mantenimiento</field><field name="sequence">80</field></record>
+    <record id="job_coordinador_mantenimiento" model="crm.contact.job"><field name="name">Coordinador de Mantenimiento</field><field name="sequence">90</field></record>
+    <record id="job_jefe_logistica" model="crm.contact.job"><field name="name">Jefe de Logística</field><field name="sequence">100</field></record>
+    <record id="job_asistente_mantenimiento" model="crm.contact.job"><field name="name">Asistente de Mantenimiento</field><field name="sequence">110</field></record>
+    <record id="job_jefe_planta" model="crm.contact.job"><field name="name">Jefe de Planta</field><field name="sequence">120</field></record>
+    <record id="job_coordinador_compras" model="crm.contact.job"><field name="name">Coordinador de Compras</field><field name="sequence">130</field></record>
+    <record id="job_supervisor_produccion" model="crm.contact.job"><field name="name">Supervisor de Producción</field><field name="sequence">140</field></record>
+    <record id="job_planificador_mantenimiento" model="crm.contact.job"><field name="name">Planificador de Mantenimiento</field><field name="sequence">150</field></record>
+    <record id="job_gerente_operaciones" model="crm.contact.job"><field name="name">Gerente de Operaciones</field><field name="sequence">160</field></record>
+    <record id="job_compradora" model="crm.contact.job"><field name="name">Compradora</field><field name="sequence">170</field></record>
+    <record id="job_jefe_operaciones" model="crm.contact.job"><field name="name">Jefe de Operaciones</field><field name="sequence">180</field></record>
+    <record id="job_asistente_logistica" model="crm.contact.job"><field name="name">Asistente de Logística</field><field name="sequence">190</field></record>
+    <record id="job_comprador_senior" model="crm.contact.job"><field name="name">Comprador Senior</field><field name="sequence">200</field></record>
+    <record id="job_jefe_produccion" model="crm.contact.job"><field name="name">Jefe de Producción</field><field name="sequence">210</field></record>
+    <record id="job_analista_logistica" model="crm.contact.job"><field name="name">Analista de Logística</field><field name="sequence">220</field></record>
+    <record id="job_practicante_compras" model="crm.contact.job"><field name="name">Practicante de Compras</field><field name="sequence">230</field></record>
+    <record id="job_coordinadora_compras" model="crm.contact.job"><field name="name">Coordinadora de Compras</field><field name="sequence">240</field></record>
+    <record id="job_ingeniero_mantenimiento" model="crm.contact.job"><field name="name">Ingeniero de Mantenimiento</field><field name="sequence">250</field></record>
+    <record id="job_analista_mantenimiento" model="crm.contact.job"><field name="name">Analista de Mantenimiento</field><field name="sequence">260</field></record>
+    <record id="job_jefe_almacen" model="crm.contact.job"><field name="name">Jefe de Almacén</field><field name="sequence">270</field></record>
+    <record id="job_coordinador_logistica" model="crm.contact.job"><field name="name">Coordinador de Logística</field><field name="sequence">280</field></record>
+    <record id="job_comprador_corporativo" model="crm.contact.job"><field name="name">Comprador Corporativo</field><field name="sequence">290</field></record>
+    <record id="job_asistente_comercial" model="crm.contact.job"><field name="name">Asistente Comercial</field><field name="sequence">300</field></record>
+    <record id="job_analista_abastecimiento" model="crm.contact.job"><field name="name">Analista de Abastecimiento</field><field name="sequence">310</field></record>
+    <record id="job_supervisor_ssoma" model="crm.contact.job"><field name="name">Supervisor SSOMA</field><field name="sequence">320</field></record>
+    <record id="job_ejecutivo_compras" model="crm.contact.job"><field name="name">Ejecutivo de Compras</field><field name="sequence">330</field></record>
+    <record id="job_asistente_produccion" model="crm.contact.job"><field name="name">Asistente de Producción</field><field name="sequence">340</field></record>
+    <record id="job_administrador_contratos" model="crm.contact.job"><field name="name">Administrador de Contratos</field><field name="sequence">350</field></record>
+    <record id="job_analista_adquisiciones" model="crm.contact.job"><field name="name">Analista de Adquisiciones</field><field name="sequence">360</field></record>
+    <record id="job_gerente_planta" model="crm.contact.job"><field name="name">Gerente de Planta</field><field name="sequence">370</field></record>
+    <record id="job_gerente_administracion_finanzas" model="crm.contact.job"><field name="name">Gerente de Administración y Finanzas</field><field name="sequence">380</field></record>
+    <record id="job_gerente_cadena_suministro" model="crm.contact.job"><field name="name">Gerente de Cadena de Suministro</field><field name="sequence">390</field></record>
+    <record id="job_gestor_compras" model="crm.contact.job"><field name="name">Gestor de Compras</field><field name="sequence">400</field></record>
+    <record id="job_gerente_mantenimiento" model="crm.contact.job"><field name="name">Gerente de Mantenimiento</field><field name="sequence">410</field></record>
+    <record id="job_gerente_comercial" model="crm.contact.job"><field name="name">Gerente Comercial</field><field name="sequence">420</field></record>
+    <record id="job_jefe_proyectos" model="crm.contact.job"><field name="name">Jefe de Proyectos</field><field name="sequence">430</field></record>
+    <record id="job_contador_general" model="crm.contact.job"><field name="name">Contador General</field><field name="sequence">440</field></record>
+    <record id="job_asesor_comercial" model="crm.contact.job"><field name="name">Asesor Comercial</field><field name="sequence">450</field></record>
+    <record id="job_programador_mantenimiento" model="crm.contact.job"><field name="name">Programador de Mantenimiento</field><field name="sequence">460</field></record>
+    <record id="job_jefe_ventas" model="crm.contact.job"><field name="name">Jefe de Ventas</field><field name="sequence">470</field></record>
+    <record id="job_analista_comercio_exterior" model="crm.contact.job"><field name="name">Analista de Comercio Exterior</field><field name="sequence">480</field></record>
+    <record id="job_tecnico_mantenimiento" model="crm.contact.job"><field name="name">Técnico de Mantenimiento</field><field name="sequence">490</field></record>
+    <record id="job_auxiliar_compras" model="crm.contact.job"><field name="name">Auxiliar de Compras</field><field name="sequence">500</field></record>
+    <record id="job_jefe_almacen_distribucion" model="crm.contact.job"><field name="name">Jefe de Almacén y Distribución</field><field name="sequence">510</field></record>
+    <record id="job_coordinador_produccion" model="crm.contact.job"><field name="name">Coordinador de Producción</field><field name="sequence">520</field></record>
+    <record id="job_ejecutivo_comercial" model="crm.contact.job"><field name="name">Ejecutivo Comercial</field><field name="sequence">530</field></record>
+    <record id="job_analista_laboratorio" model="crm.contact.job"><field name="name">Analista de Laboratorio</field><field name="sequence">540</field></record>
+    <record id="job_gerente_produccion" model="crm.contact.job"><field name="name">Gerente de Producción</field><field name="sequence">550</field></record>
+    <record id="job_supervisor_compras" model="crm.contact.job"><field name="name">Supervisor de Compras</field><field name="sequence">560</field></record>
+    <record id="job_jefe_mantenimiento_planta" model="crm.contact.job"><field name="name">Jefe de Mantenimiento de Planta</field><field name="sequence">570</field></record>
+    <record id="job_jefe_almacenes" model="crm.contact.job"><field name="name">Jefe de Almacenes</field><field name="sequence">580</field></record>
+    <record id="job_supervisor_operaciones" model="crm.contact.job"><field name="name">Supervisor de Operaciones</field><field name="sequence">590</field></record>
+    <record id="job_gerente_producto" model="crm.contact.job"><field name="name">Gerente de Producto</field><field name="sequence">600</field></record>
+    <record id="job_asistente_comercio_exterior" model="crm.contact.job"><field name="name">Asistente de Comercio Exterior</field><field name="sequence">610</field></record>
+    <record id="job_administrador_contratos_senior" model="crm.contact.job"><field name="name">Administrador de Contratos Senior</field><field name="sequence">620</field></record>
+</odoo>
