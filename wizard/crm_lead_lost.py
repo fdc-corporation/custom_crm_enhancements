@@ -14,5 +14,11 @@ class CrmLeadLost(models.TransientModel):
 
     def action_lost_reason_apply(self):
         self._check_lost_reason()
+        stage_id = self.env.context.get("crm_target_lost_stage_id")
+        if stage_id:
+            stage = self.env["crm.stage"].browse(stage_id).exists()
+            if not stage or not stage.is_lost:
+                raise ValidationError(_("La etapa seleccionada ya no es una etapa de pérdida."))
+            self.lead_ids.with_context(crm_apply_lost=True).write({"stage_id": stage.id})
         return super().action_lost_reason_apply()
 

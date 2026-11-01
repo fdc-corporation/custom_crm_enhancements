@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="lost_reason_price" model="crm.lost.reason"><field name="name">Precio fuera del presupuesto</field></record>
+    <record id="lost_reason_competitor" model="crm.lost.reason"><field name="name">Cliente eligió a la competencia</field></record>
+    <record id="lost_reason_delivery" model="crm.lost.reason"><field name="name">Plazo de entrega no aceptado</field></record>
+    <record id="lost_reason_stock" model="crm.lost.reason"><field name="name">Producto sin disponibilidad</field></record>
+    <record id="lost_reason_technical" model="crm.lost.reason"><field name="name">No cumple los requisitos técnicos</field></record>
+    <record id="lost_reason_payment" model="crm.lost.reason"><field name="name">Condiciones de pago no aceptadas</field></record>
+    <record id="lost_reason_credit" model="crm.lost.reason"><field name="name">Crédito no aprobado</field></record>
+    <record id="lost_reason_budget" model="crm.lost.reason"><field name="name">Cliente sin presupuesto aprobado</field></record>
+    <record id="lost_reason_cancelled" model="crm.lost.reason"><field name="name">Proyecto cancelado</field></record>
+    <record id="lost_reason_postponed" model="crm.lost.reason"><field name="name">Proyecto postergado sin fecha</field></record>
+    <record id="lost_reason_no_response" model="crm.lost.reason"><field name="name">Cliente no responde al seguimiento</field></record>
+    <record id="lost_reason_no_interest" model="crm.lost.reason"><field name="name">Cliente ya no requiere el producto o servicio</field></record>
+    <record id="lost_reason_supplier" model="crm.lost.reason"><field name="name">Cliente mantiene su proveedor actual</field></record>
+    <record id="lost_reason_tender" model="crm.lost.reason"><field name="name">Licitación no adjudicada</field></record>
+    <record id="lost_reason_out_of_scope" model="crm.lost.reason"><field name="name">Solicitud fuera de nuestro alcance</field></record>
+    <record id="lost_reason_duplicate" model="crm.lost.reason"><field name="name">Oportunidad duplicada</field></record>
+    <record id="lost_reason_other" model="crm.lost.reason"><field name="name">Otros motivos</field></record>
+</odoo>

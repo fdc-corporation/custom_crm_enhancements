@@ -5,11 +5,14 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='function']" position="after">
+            <xpath expr="//sheet/group//field[@name='function']" position="after">
                 <field name="job_position_id" placeholder="Seleccione un puesto de trabajo" invisible="is_company" options="{'no_create': True, 'no_create_edit': True}"/>
             </xpath>
-            <xpath expr="//field[@name='function']" position="attributes">
+            <xpath expr="//sheet/group//field[@name='function']" position="attributes">
                 <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']/form//field[@name='function']" position="replace">
+                <field name="job_position_id" class="w-100" placeholder="Seleccione un puesto de trabajo" options="{'no_create': True, 'no_create_edit': True}"/>
             </xpath>
         </field>
     </record>

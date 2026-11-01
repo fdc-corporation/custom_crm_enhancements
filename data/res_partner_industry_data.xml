@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+  <record id="industry_mineria" model="res.partner.industry">
+    <field name="name">Minería</field>
+  </record>
+  <record id="industry_alimentos_bebidas" model="res.partner.industry">
+    <field name="name">Alimentos y bebidas</field>
+  </record>
+  <record id="industry_pesca" model="res.partner.industry">
+    <field name="name">Pesca</field>
+  </record>
+  <record id="industry_textil" model="res.partner.industry">
+    <field name="name">Textil</field>
+  </record>
+  <record id="industry_farmaceutica" model="res.partner.industry">
+    <field name="name">Farmacéutica</field>
+  </record>
+  <record id="industry_cosmetica" model="res.partner.industry">
+    <field name="name">Cosmética</field>
+  </record>
+  <record id="industry_plasticos" model="res.partner.industry">
+    <field name="name">Plásticos</field>
+  </record>
+  <record id="industry_metalmecanica" model="res.partner.industry">
+    <field name="name">Metalmecánica</field>
+  </record>
+  <record id="industry_automotriz" model="res.partner.industry">
+    <field name="name">Automotriz</field>
+  </record>
+  <record id="industry_construccion" model="res.partner.industry">
+    <field name="name">Construcción</field>
+  </record>
+  <record id="industry_cemento" model="res.partner.industry">
+    <field name="name">Cemento</field>
+  </record>
+  <record id="industry_ceramica" model="res.partner.industry">
+    <field name="name">Cerámica</field>
+  </record>
+  <record id="industry_vidrio" model="res.partner.industry">
+    <field name="name">Vidrio</field>
+  </record>
+  <record id="industry_papel_carton" model="res.partner.industry">
+    <field name="name">Papel y cartón</field>
+  </record>
+  <record id="industry_quimica" model="res.partner.industry">
+    <field name="name">Química</field>
+  </record>
+  <record id="industry_pinturas" model="res.partner.industry">
+    <field name="name">Pinturas</field>
+  </record>
+  <record id="industry_manufactura" model="res.partner.industry">
+    <field name="name">Manufactura</field>
+  </record>
+  <record id="industry_logistica" model="res.partner.industry">
+    <field name="name">Logística</field>
+  </record>
+  <record id="industry_transporte" model="res.partner.industry">
+    <field name="name">Transporte</field>
+  </record>
+  <record id="industry_energia" model="res.partner.industry">
+    <field name="name">Energía</field>
+  </record>
+  <record id="industry_petroleo_gas" model="res.partner.industry">
+    <field name="name">Petróleo y gas</field>
+  </record>
+  <record id="industry_salud" model="res.partner.industry">
+    <field name="name">Salud</field>
+  </record>
+  <record id="industry_educacion" model="res.partner.industry">
+    <field name="name">Educación</field>
+  </record>
+  <record id="industry_agroindustria" model="res.partner.industry">
+    <field name="name">Agroindustria</field>
+  </record>
+  <record id="industry_retail" model="res.partner.industry">
+    <field name="name">Retail</field>
+  </record>
+  <record id="industry_servicios" model="res.partner.industry">
+    <field name="name">Servicios</field>
+  </record>
+  <record id="industry_otros" model="res.partner.industry">
+    <field name="name">Otros</field>
+  </record>
+</odoo>
