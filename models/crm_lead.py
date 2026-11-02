@@ -16,6 +16,14 @@ class CrmLead(models.Model):
         readonly=False,
     )
 
+    industry_id = fields.Many2one(
+        "res.partner.industry",
+        string="Industria",
+        compute="_compute_industry_id",
+        inverse="_inverse_industry_id",
+        readonly=False,
+    )
+
     expected_revenue = fields.Monetary(
         string="Expected Revenue",
         compute="_compute_expected_revenue_from_quotations",
@@ -35,6 +43,36 @@ class CrmLead(models.Model):
     def _inverse_job_position_id(self):
         for lead in self:
             lead.function = lead.job_position_id.name or False
+
+    @api.depends("commercial_partner_id", "partner_id")
+    def _compute_industry_id(self):
+        for lead in self:
+            company = lead.commercial_partner_id
+            if not company and lead.partner_id:
+                company = lead.partner_id.commercial_partner_id
+            lead.industry_id = company.industry_id if company and company.is_company else False
+
+    def _inverse_industry_id(self):
+        for lead in self:
+            company = lead.commercial_partner_id
+            if not company and lead.partner_id:
+                company = lead.partner_id.commercial_partner_id
+            if company and company.is_company:
+                company.industry_id = lead.industry_id
+
+    def _prepare_opportunity_quotation_context(self):
+        """Dirige las cotizaciones a la empresa, nunca al contacto individual."""
+        self.ensure_one()
+        context = super()._prepare_opportunity_quotation_context()
+        company = self.commercial_partner_id
+        if not company and self.partner_id:
+            company = self.partner_id.commercial_partner_id
+        if not company or not company.is_company:
+            raise ValidationError(
+                _("Seleccione una empresa para la oportunidad antes de crear la cotización.")
+            )
+        context["default_partner_id"] = company.id
+        return context
 
     @api.depends(
         "email_domain_criterion",

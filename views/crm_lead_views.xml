@@ -22,6 +22,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='function']" position="after">
                 <field name="job_position_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                <field name="industry_id" placeholder="Seleccione una industria" options="{'no_create': True, 'no_create_edit': True}"/>
             </xpath>
             <xpath expr="//field[@name='function']" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -43,7 +44,13 @@
             <xpath expr="//field[@name='partner_id']" position="attributes">
                 <attribute name="domain">[('is_company', '=', False), ('parent_id', '=', commercial_partner_id)]</attribute>
                 <attribute name="context">{'default_is_company': False, 'default_type': 'contact', 'default_parent_id': commercial_partner_id}</attribute>
-                <attribute name="options">{'no_create': False, 'no_create_edit': False}</attribute>
+                <attribute name="options">{'no_quick_create': True, 'no_create_edit': False}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='commercial_partner_id']/ancestor::div[1]" position="after">
+                <div class="d-flex align-items-center" colspan="2">
+                    <i class="fa fa-industry" title="Industria"/>
+                    <field name="industry_id" nolabel="1" class="o_field_highlight w-100 mb-0" placeholder="Industria" options="{'no_create': True, 'no_create_edit': True}"/>
+                </div>
             </xpath>
             <xpath expr="//field[@name='partner_id']/ancestor::div[1]" position="after">
                 <div class="d-flex align-items-center" colspan="2">
