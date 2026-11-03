@@ -27,10 +27,10 @@ class CrmLead(models.Model):
     expected_revenue = fields.Monetary(
         string="Expected Revenue",
         compute="_compute_expected_revenue_from_quotations",
-        store=True,
+        store=False,
         readonly=True,
         currency_field="company_currency",
-        help="Total con impuestos de las cotizaciones vinculadas, convertido a la moneda de la compañía.",
+        help="Total con impuestos de las cotizaciones y órdenes de venta vinculadas, excepto canceladas.",
     )
 
     @api.depends("function")
@@ -105,10 +105,18 @@ class CrmLead(models.Model):
         "order_ids.company_id",
     )
     def _compute_expected_revenue_from_quotations(self):
-        """Only draft/sent quotations are expected revenue; cancelled/orders are excluded."""
+        """Calcula en cada lectura cotizaciones y órdenes vinculadas, con impuestos."""
+        SaleOrder = self.env["sale.order"]
         for lead in self:
             company_currency = lead.company_currency or lead.company_id.currency_id or self.env.company.currency_id
-            quotations = lead.order_ids.filtered(lambda order: order.state in ("draft", "sent"))
+            orders = (
+                SaleOrder.search([
+                    ("opportunity_id", "=", lead.id),
+                    ("state", "!=", "cancel"),
+                ])
+                if lead.id
+                else SaleOrder
+            )
             lead.expected_revenue = sum(
                 order.currency_id._convert(
                     order.amount_total,
@@ -116,7 +124,7 @@ class CrmLead(models.Model):
                     order.company_id,
                     order.date_order or fields.Date.context_today(order),
                 )
-                for order in quotations
+                for order in orders
             )
 
     @api.model_create_multi

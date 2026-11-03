@@ -1,11 +1,11 @@
 {
     "name": "CRM Akane Enhancements",
-    "version": "19.0.1.3.0",
+    "version": "19.0.1.4.0",
     "category": "Sales/CRM",
     "summary": "Mejoras de actividades, cotizaciones, Kanban y alertas del CRM",
     "author": "Custom",
     "license": "LGPL-3",
-    "depends": ["crm", "sale_crm", "mail"],
+    "depends": ["crm", "sale_crm", "mail", "l10n_latam_base"],
     "data": [
         "security/crm_access_rules.xml",
         "security/ir.model.access.csv",
