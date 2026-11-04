@@ -7,6 +7,121 @@ from odoo.exceptions import ValidationError
 class CrmLead(models.Model):
     _inherit = "crm.lead"
 
+    proposal_substate = fields.Selection(
+        [
+            ("sent", "Enviada"),
+            ("follow_up", "En seguimiento"),
+            ("active_negotiation", "Negociación activa"),
+            ("waiting_po", "Esperando OC"),
+            ("postponed", "Postergada"),
+        ],
+        string="Subestado de propuesta",
+        tracking=True,
+    )
+    business_line_id = fields.Many2one(
+        "crm.commercial.catalog",
+        string="Línea de negocio principal",
+        domain="[('category', '=', 'business_line')]",
+        tracking=True,
+    )
+    secondary_business_line_ids = fields.Many2many(
+        "crm.commercial.catalog",
+        "crm_lead_secondary_business_line_rel",
+        "lead_id",
+        "catalog_id",
+        string="Líneas secundarias detectadas",
+        domain="[('category', '=', 'business_line')]",
+    )
+    potential_business_line_ids = fields.Many2many(
+        "crm.commercial.catalog",
+        "crm_lead_potential_business_line_rel",
+        "lead_id",
+        "catalog_id",
+        string="Líneas potenciales de venta cruzada",
+        domain="[('category', '=', 'business_line')]",
+    )
+    service_type_id = fields.Many2one(
+        "crm.commercial.catalog",
+        string="Tipo de servicio",
+        domain="[('category', '=', 'service_type')]",
+    )
+    solution_ids = fields.Many2many(
+        "crm.commercial.catalog",
+        "crm_lead_solution_rel",
+        "lead_id",
+        "catalog_id",
+        string="Productos / soluciones",
+        domain="[('category', '=', 'solution')]",
+    )
+    brand_ids = fields.Many2many(
+        "crm.commercial.catalog",
+        "crm_lead_brand_rel",
+        "lead_id",
+        "catalog_id",
+        string="Marcas",
+        domain="[('category', '=', 'brand')]",
+    )
+    commercial_situation_ids = fields.Many2many(
+        "crm.commercial.catalog",
+        "crm_lead_commercial_situation_rel",
+        "lead_id",
+        "catalog_id",
+        string="Situación comercial",
+        domain="[('category', '=', 'commercial_situation')]",
+    )
+    customer_type_id = fields.Many2one(
+        "crm.commercial.catalog",
+        string="Tipo de cliente",
+        domain="[('category', '=', 'customer_type')]",
+    )
+    horsepower = fields.Float(string="Potencia HP")
+    power_range = fields.Selection(
+        [
+            ("0_10", "Hasta 10 HP"),
+            ("11_25", "11 a 25 HP"),
+            ("26_50", "26 a 50 HP"),
+            ("51_100", "51 a 100 HP"),
+            ("101_200", "101 a 200 HP"),
+            ("over_200", "Más de 200 HP"),
+        ],
+        string="Rango de potencia",
+    )
+    date_reactivation = fields.Date(string="Fecha de reactivación", tracking=True)
+    customer_recurrence = fields.Selection(
+        [("new", "Cliente nuevo"), ("recurring", "Cliente recurrente")],
+        string="Nuevo / recurrente",
+        tracking=True,
+    )
+    contact_result = fields.Selection(
+        [
+            ("not_contacted", "No contactado"),
+            ("contacted", "Contactado"),
+            ("interested", "Interés"),
+            ("not_interested", "Sin interés"),
+            ("call_back", "Volver a contactar"),
+        ],
+        string="Resultado de contacto",
+        tracking=True,
+    )
+    lost_due_stock = fields.Boolean(string="Pérdida por falta de stock")
+    lost_product_ids = fields.Many2many(
+        "product.product",
+        "crm_lead_lost_product_rel",
+        "lead_id",
+        "product_id",
+        string="Productos afectados por falta de stock",
+    )
+    cmms_state = fields.Selection(
+        [
+            ("not_applicable", "No aplica"),
+            ("eligible", "Elegible"),
+            ("offered", "Ofrecido"),
+            ("activated", "Activado"),
+        ],
+        string="Estado CMMS",
+    )
+    cmms_equipment_count = fields.Integer(string="Equipos registrados en CMMS")
+
     job_position_id = fields.Many2one(
         "crm.contact.job",
         string="Puesto de trabajo",
@@ -27,7 +142,7 @@ class CrmLead(models.Model):
     expected_revenue = fields.Monetary(
         string="Expected Revenue",
         compute="_compute_expected_revenue_from_quotations",
-        store=False,
+        store=True,
         readonly=True,
         currency_field="company_currency",
         help="Total con impuestos de las cotizaciones y órdenes de venta vinculadas, excepto canceladas.",
@@ -98,6 +213,8 @@ class CrmLead(models.Model):
             lead.duplicate_lead_count = len(visible_duplicates - lead)
 
     @api.depends(
+        "order_ids",
+        "order_ids.opportunity_id",
         "order_ids.state",
         "order_ids.amount_total",
         "order_ids.currency_id",
@@ -105,7 +222,7 @@ class CrmLead(models.Model):
         "order_ids.company_id",
     )
     def _compute_expected_revenue_from_quotations(self):
-        """Calcula en cada lectura cotizaciones y órdenes vinculadas, con impuestos."""
+        """Calcula cotizaciones y órdenes vinculadas, con impuestos, para agrupar por etapa."""
         SaleOrder = self.env["sale.order"]
         for lead in self:
             company_currency = lead.company_currency or lead.company_id.currency_id or self.env.company.currency_id

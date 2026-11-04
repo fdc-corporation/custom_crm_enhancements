@@ -1,6 +1,6 @@
 {
     "name": "CRM Akane Enhancements",
-    "version": "19.0.1.4.1",
+    "version": "19.0.2.0.0",
     "category": "Sales/CRM",
     "summary": "Mejoras de actividades, cotizaciones, Kanban y alertas del CRM",
     "author": "Custom",
@@ -10,7 +10,9 @@
         "security/crm_access_rules.xml",
         "security/ir.model.access.csv",
         "data/crm_contact_job_data.xml",
+        "data/crm_commercial_catalog_data.xml",
         "data/ir_cron_data.xml",
+        "views/crm_commercial_catalog_views.xml",
         "views/res_partner_views.xml",
         "views/crm_lead_views.xml",
         "views/mail_activity_views.xml",

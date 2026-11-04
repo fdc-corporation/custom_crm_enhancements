@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_commercial_catalog_list" model="ir.ui.view">
+        <field name="name">crm.commercial.catalog.list</field>
+        <field name="model">crm.commercial.catalog</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="category"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="crm_commercial_catalog_form" model="ir.ui.view">
+        <field name="name">crm.commercial.catalog.form</field>
+        <field name="model">crm.commercial.catalog</field>
+        <field name="arch" type="xml">
+            <form string="Catálogo comercial">
+                <sheet>
+                    <group>
+                        <field name="category"/>
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="crm_commercial_catalog_search" model="ir.ui.view">
+        <field name="name">crm.commercial.catalog.search</field>
+        <field name="model">crm.commercial.catalog</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="category"/>
+                <filter name="group_category" string="Familia" context="{'group_by': 'category'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="crm_commercial_catalog_action" model="ir.actions.act_window">
+        <field name="name">Catálogos comerciales</field>
+        <field name="res_model">crm.commercial.catalog</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="crm_commercial_catalog_search"/>
+    </record>
+
+    <menuitem id="crm_commercial_catalog_menu"
+              name="Catálogos comerciales"
+              parent="crm.crm_menu_config"
+              action="crm_commercial_catalog_action"
+              sequence="35"
+              groups="sales_team.group_sale_manager"/>
+</odoo>

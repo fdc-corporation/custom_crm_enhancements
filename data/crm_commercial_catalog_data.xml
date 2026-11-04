@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Líneas de negocio -->
+    <record id="line_compresores" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">COMP</field><field name="name">Compresores / Chicago Pneumatic</field><field name="sequence">10</field></record>
+    <record id="line_mantenimiento" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">MANT</field><field name="name">Mantenimiento de compresores</field><field name="sequence">20</field></record>
+    <record id="line_repuestos" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">REP</field><field name="name">Repuestos de compresores</field><field name="sequence">30</field></record>
+    <record id="line_tratamiento_aire" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">TRAT-AIRE</field><field name="name">Tratamiento de aire</field><field name="sequence">40</field></record>
+    <record id="line_auditoria" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">AUD</field><field name="name">Auditoría / red de aire</field><field name="sequence">50</field></record>
+    <record id="line_alquiler" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">ALQ</field><field name="name">Alquiler</field><field name="sequence">60</field></record>
+    <record id="line_storage" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">STORAGE</field><field name="name">Storage Compat</field><field name="sequence">70</field></record>
+    <record id="line_limpieza" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">CLEAN</field><field name="name">Limpieza profesional</field><field name="sequence">80</field></record>
+    <record id="line_otros_equipos" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">OT-EQ</field><field name="name">Otros equipos industriales</field><field name="sequence">90</field></record>
+    <record id="line_otros_servicios" model="crm.commercial.catalog"><field name="category">business_line</field><field name="code">OT-SRV</field><field name="name">Otros servicios</field><field name="sequence">100</field></record>
+
+    <!-- Tipos de servicio -->
+    <record id="service_mp" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">MP</field><field name="name">Mantenimiento preventivo</field></record>
+    <record id="service_mc" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">MC</field><field name="name">Mantenimiento correctivo</field></record>
+    <record id="service_oh" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">OH</field><field name="name">Overhaul</field></record>
+    <record id="service_ins" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">INS</field><field name="name">Inspección / diagnóstico</field></record>
+    <record id="service_rep" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">REP</field><field name="name">Reparación</field></record>
+    <record id="service_inst" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">INST</field><field name="name">Instalación</field></record>
+    <record id="service_aud" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">AUD</field><field name="name">Auditoría de aire comprimido</field></record>
+    <record id="service_fug" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">FUG</field><field name="name">Detección de fugas</field></record>
+    <record id="service_red" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">RED</field><field name="name">Red de aire comprimido</field></record>
+    <record id="service_alq" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">ALQ</field><field name="name">Alquiler</field></record>
+    <record id="service_emg" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">EMG</field><field name="name">Atención de emergencia</field></record>
+    <record id="service_desm" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">DESM</field><field name="name">Desmontaje</field></record>
+    <record id="service_mon" model="crm.commercial.catalog"><field name="category">service_type</field><field name="code">MON</field><field name="name">Montaje</field></record>
+
+    <!-- Productos / soluciones -->
+    <record id="solution_comp" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">COMP</field><field name="name">Compresor</field></record>
+    <record id="solution_sec" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">SEC</field><field name="name">Secador</field></record>
+    <record id="solution_fil" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">FIL</field><field name="name">Filtro</field></record>
+    <record id="solution_tan" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">TAN</field><field name="name">Tanque pulmón</field></record>
+    <record id="solution_gen_n2" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">GEN-N2</field><field name="name">Generador de nitrógeno</field></record>
+    <record id="solution_storage" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">STORAGE</field><field name="name">Storage Compat</field></record>
+    <record id="solution_athena" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">ATHENA</field><field name="name">Athena</field></record>
+    <record id="solution_clean" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">CLEAN</field><field name="name">Limpieza profesional</field></record>
+    <record id="solution_red_aire" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">RED-AIRE</field><field name="name">Proyecto de red de aire</field></record>
+    <record id="solution_trat_aire" model="crm.commercial.catalog"><field name="category">solution</field><field name="code">TRAT-AIRE</field><field name="name">Tratamiento de aire</field></record>
+
+    <!-- Marcas -->
+    <record id="brand_cp" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">CP</field><field name="name">Chicago Pneumatic</field></record>
+    <record id="brand_ac" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">AC</field><field name="name">Atlas Copco</field></record>
+    <record id="brand_ir" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">IR</field><field name="name">Ingersoll Rand</field></record>
+    <record id="brand_sullair" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">SULLAIR</field><field name="name">Sullair</field></record>
+    <record id="brand_kaeser" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">KAESER</field><field name="name">Kaeser</field></record>
+    <record id="brand_compair" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">COMPAIR</field><field name="name">CompAir</field></record>
+    <record id="brand_ceccato" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">CECCATO</field><field name="name">Ceccato</field></record>
+    <record id="brand_pneumatech" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">PNEUMATECH</field><field name="name">Pneumatech</field></record>
+    <record id="brand_karcher" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">KARCHER</field><field name="name">Kärcher</field></record>
+    <record id="brand_nilfisk" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">NILFISK</field><field name="name">Nilfisk</field></record>
+    <record id="brand_storage" model="crm.commercial.catalog"><field name="category">brand</field><field name="code">STORAGE-C</field><field name="name">Storage Compat</field></record>
+
+    <!-- Situación comercial -->
+    <record id="situation_ren" model="crm.commercial.catalog"><field name="category">commercial_situation</field><field name="code">REN</field><field name="name">Renovación de equipo</field></record>
+    <record id="situation_reemp" model="crm.commercial.catalog"><field name="category">commercial_situation</field><field name="code">REEMP</field><field name="name">Reemplazo</field></record>
+    <record id="situation_exp" model="crm.commercial.catalog"><field name="category">commercial_situation</field><field name="code">EXP</field><field name="name">Expansión</field></record>
+    <record id="situation_cross" model="crm.commercial.catalog"><field name="category">commercial_situation</field><field name="code">CROSS</field><field name="name">Cross-selling</field></record>
+    <record id="situation_stock" model="crm.commercial.catalog"><field name="category">commercial_situation</field><field name="code">STOCK</field><field name="name">Requiere disponibilidad de stock</field></record>
+    <record id="situation_imp" model="crm.commercial.catalog"><field name="category">commercial_situation</field><field name="code">IMP</field><field name="name">Importación</field></record>
+    <record id="situation_urg" model="crm.commercial.catalog"><field name="category">commercial_situation</field><field name="code">URG</field><field name="name">Urgente</field></record>
+
+    <!-- Tipos de cliente -->
+    <record id="customer_user" model="crm.commercial.catalog"><field name="category">customer_type</field><field name="code">USER</field><field name="name">Usuario final</field></record>
+    <record id="customer_dist" model="crm.commercial.catalog"><field name="category">customer_type</field><field name="code">DIST</field><field name="name">Distribuidor</field></record>
+    <record id="customer_taller" model="crm.commercial.catalog"><field name="category">customer_type</field><field name="code">TALLER</field><field name="name">Taller / servicio técnico</field></record>
+    <record id="customer_contr" model="crm.commercial.catalog"><field name="category">customer_type</field><field name="code">CONTR</field><field name="name">Contratista / integrador</field></record>
+
+    <!-- Orígenes controlados -->
+    <record id="source_outbound_call" model="utm.source"><field name="name">Llamada saliente</field></record>
+    <record id="source_whatsapp" model="utm.source"><field name="name">WhatsApp</field></record>
+    <record id="source_email" model="utm.source"><field name="name">Correo</field></record>
+    <record id="source_website" model="utm.source"><field name="name">Página web</field></record>
+    <record id="source_referral" model="utm.source"><field name="name">Referido</field></record>
+    <record id="source_existing_customer" model="utm.source"><field name="name">Cliente existente</field></record>
+    <record id="source_campaign" model="utm.source"><field name="name">Campaña</field></record>
+    <record id="source_social" model="utm.source"><field name="name">Redes sociales</field></record>
+    <record id="source_visit" model="utm.source"><field name="name">Visita</field></record>
+    <record id="source_office" model="utm.source"><field name="name">Oficina / ingreso directo</field></record>
+    <record id="source_database" model="utm.source"><field name="name">Base de datos</field></record>
+    <record id="source_other" model="utm.source"><field name="name">Otro</field></record>
+
+    <!-- Motivos de pérdida -->
+    <record id="lost_price" model="crm.lost.reason"><field name="name">Precio</field></record>
+    <record id="lost_competition" model="crm.lost.reason"><field name="name">Competencia</field></record>
+    <record id="lost_stock" model="crm.lost.reason"><field name="name">Falta de stock</field></record>
+    <record id="lost_delivery" model="crm.lost.reason"><field name="name">Plazo de entrega</field></record>
+    <record id="lost_budget" model="crm.lost.reason"><field name="name">Sin presupuesto</field></record>
+    <record id="lost_postponed" model="crm.lost.reason"><field name="name">Proyecto postergado</field></record>
+    <record id="lost_cancelled" model="crm.lost.reason"><field name="name">Proyecto cancelado</field></record>
+    <record id="lost_specification" model="crm.lost.reason"><field name="name">No cumple especificación</field></record>
+    <record id="lost_payment" model="crm.lost.reason"><field name="name">Condición de pago</field></record>
+    <record id="lost_no_answer" model="crm.lost.reason"><field name="name">Sin respuesta</field></record>
+    <record id="lost_regular_supplier" model="crm.lost.reason"><field name="name">Proveedor habitual</field></record>
+    <record id="lost_qualification" model="crm.lost.reason"><field name="name">Error de calificación</field></record>
+    <record id="lost_other" model="crm.lost.reason"><field name="name">Otro motivo</field></record>
+</odoo>

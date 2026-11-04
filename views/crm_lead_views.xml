@@ -11,6 +11,16 @@
             <xpath expr="//t[@t-name='menu']/field[@name='color']" position="replace"/>
             <xpath expr="//t[@t-name='card']/field[@name='contact_name']" position="after">
                 <field name="job_position_id" class="text-muted" invisible="not job_position_id"/>
+                <div class="text-muted d-flex align-items-center gap-1" invisible="not source_id">
+                    <i class="fa fa-sign-in" title="Origen"/>
+                    <span>Origen:</span>
+                    <field name="source_id"/>
+                </div>
+                <div class="text-muted d-flex align-items-center gap-1">
+                    <i class="fa fa-calendar" title="Fecha de creación"/>
+                    <span>Creado:</span>
+                    <field name="create_date" widget="date"/>
+                </div>
             </xpath>
         </field>
     </record>
@@ -26,6 +36,46 @@
             </xpath>
             <xpath expr="//field[@name='function']" position="attributes">
                 <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='source_id']" position="attributes">
+                <attribute name="options">{'no_create': True, 'no_create_edit': True}</attribute>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Información comercial" name="fdc_commercial_information">
+                    <group>
+                        <group string="Clasificación">
+                            <field name="business_line_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="secondary_business_line_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="service_type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="solution_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="brand_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="commercial_situation_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="customer_type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="customer_recurrence"/>
+                        </group>
+                        <group string="Seguimiento comercial">
+                            <field name="proposal_substate"/>
+                            <field name="contact_result"/>
+                            <field name="date_deadline"/>
+                            <field name="date_reactivation"/>
+                            <field name="horsepower"/>
+                            <field name="power_range"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Venta cruzada">
+                            <field name="potential_business_line_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True}"/>
+                        </group>
+                        <group string="Pérdida por stock">
+                            <field name="lost_due_stock"/>
+                            <field name="lost_product_ids" widget="many2many_tags" invisible="not lost_due_stock"/>
+                        </group>
+                    </group>
+                    <group string="CMMS como valor agregado">
+                        <field name="cmms_state"/>
+                        <field name="cmms_equipment_count"/>
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>
@@ -81,6 +131,29 @@
             <xpath expr="//filter[@name='activities_today']" position="attributes">
                 <attribute name="invisible">0</attribute>
                 <attribute name="string">Actividades de hoy</attribute>
+            </xpath>
+            <xpath expr="//field[@name='lead_properties']" position="after">
+                <field name="business_line_id"/>
+                <field name="service_type_id"/>
+                <field name="solution_ids"/>
+                <field name="brand_ids"/>
+                <field name="commercial_situation_ids"/>
+                <field name="customer_type_id"/>
+                <field name="proposal_substate"/>
+                <field name="customer_recurrence"/>
+                <field name="power_range"/>
+            </xpath>
+            <xpath expr="//filter[@name='activities_today']" position="before">
+                <filter name="fdc_lost_stock" string="Pérdidas por stock" domain="[('lost_due_stock', '=', True)]"/>
+                <filter name="fdc_postponed" string="Propuestas postergadas" domain="[('proposal_substate', '=', 'postponed')]"/>
+                <separator/>
+            </xpath>
+            <xpath expr="//group/filter[@name='stage']" position="after">
+                <filter name="group_business_line" string="Línea de negocio" context="{'group_by': 'business_line_id'}"/>
+                <filter name="group_service_type" string="Tipo de servicio" context="{'group_by': 'service_type_id'}"/>
+                <filter name="group_substate" string="Subestado de propuesta" context="{'group_by': 'proposal_substate'}"/>
+                <filter name="group_recurrence" string="Nuevo / recurrente" context="{'group_by': 'customer_recurrence'}"/>
+                <filter name="group_power_range" string="Rango de potencia" context="{'group_by': 'power_range'}"/>
             </xpath>
         </field>
     </record>
